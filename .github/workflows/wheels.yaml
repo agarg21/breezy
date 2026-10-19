@@ -86,6 +86,7 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
+          CIBW_BUILD: "${{ matrix.build-identifier }}*"
           CIBW_SKIP: "*musllinux* *-win32"
           CIBW_ARCHS_MACOS: x86_64 arm64 universal2
           CIBW_SKIP_LINUX: '*-musllinux_*'
